@@ -1,11 +1,12 @@
 function EventHandle(props) {
-  function ShowMessage(name) {
+  function ShowMessage(name, e) {
     alert("Hello, World!" + " " + name);
+    console.log(e.target);
   }
   return (
     <>
       <button
-        onClick={() => ShowMessage(props.name)}
+        onClick={(e) => ShowMessage(props.name, e)}
         className="border-4 border-green-500 p-4 ml-auto"
       >
         Click me {props.children} {props.last}
