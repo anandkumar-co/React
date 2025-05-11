@@ -1,0 +1,26 @@
+.Hero-left {
+  flex: 1;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  line-height: 1.1;
+  flex-direction: column;
+  justify-content: center;
+}
+.Hero {
+  /* height: 100vh; */
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+}
+.hand-icon {
+  height: 55px;
+}
+
+.Hero-text {
+  font-size: 38px;
+}
+.Hero-Right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
