@@ -26,6 +26,30 @@ const ProductDisplay = (props) => {
             <img src={dullstar} alt="" />
             <p>(1224)</p>
         </div>
+        <div className="productDisplay-prices">
+            <div className="productDisplay-prices-old">${product.old_price}</div>
+            <div className="productDisplay-prices-new">${product.new_price}</div>
+        </div>
+        <div className="productDisplay-description">After that we will make the single product page with product image gallery, product price,
+
+        </div>
+        <div className="productDisplay-size">
+            <h1>Select Size</h1>
+            <div className="productDisplay-right-size">
+                <div>S</div>
+                <div>M</div>
+                <div>L</div>
+                <div>XL</div>
+                <div>XXl</div>
+            </div>
+        </div>
+        <button>Add to Cart</button>
+        <p className="productDisplay-right-category">
+            <span>Category : </span>Women,Tshirt, crop top
+        </p>
+        <p className="productDisplay-right-category">
+            <span>Tags : </span>Modern,Latest
+        </p>
     </div>
    </div>
   );
