@@ -31,6 +31,7 @@ function App() {
         setTodos([]);
         localStorage.removeItem("todos");
     }
+    
   return (
     <div className="App">
      <Todoform onAddTodo={handleSubmit}/>
