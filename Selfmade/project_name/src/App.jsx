@@ -12,18 +12,28 @@ function App() {
 
 
    const handleSubmit=(inputvalue)=>{
-        if(inputvalue==="")return;
-        if(todos.includes(inputvalue)) return;
-         setTodos((prevTodos)=>[...prevTodos,inputvalue]) 
+    const {id,content,isCompleted} = inputvalue;
+        if(!content )return;
+        const todosExist=todos.find((currTask)=>currTask.content===content); 
+        if(todosExist)return;
+         setTodos((prevTodos)=>[...prevTodos,{id,content,isCompleted}]) 
         } 
         localStorage.setItem("todos", JSON.stringify(todos));
 
 
       const handlemarkTodo=(todo)=>{
-       
+        const newTodos = todos.map((t)=>{
+          if(t.content===todo){
+            return{...t, isCompleted: !t.isCompleted}
+          }
+          else{
+            return t;
+          }
+        })
+        setTodos(newTodos);
     }
       const handleDeleteTodo=(todo)=>{
-        const newTodos = todos.filter((t) => t !== todo);
+        const newTodos = todos.filter((t) => t.content !== todo);
         setTodos(newTodos);
     }
 
@@ -31,7 +41,7 @@ function App() {
         setTodos([]);
         localStorage.removeItem("todos");
     }
-    
+
   return (
     <div className="App">
      <Todoform onAddTodo={handleSubmit}/>
