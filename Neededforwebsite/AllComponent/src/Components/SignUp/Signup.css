@@ -1,0 +1,37 @@
+.signup-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    height: 100vh;
+}
+.input-container{
+       display: flex;
+    justify-content: center;
+    padding: 16px;
+    align-items: center;
+    /* height: 100vh; */
+    position: relative;
+}
+.signup-login-label{
+  position: absolute;
+  background-color: white;
+  color: gray;
+  left: 16px;
+  padding: 0 4px;
+  transition: all 0.2s ease-in;
+}
+.signup-input{
+  padding: 16px;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 6px;
+}
+input:is(:focus, :valid) {
+  border: 2px solid black;
+}
+input:is(:focus, :valid) + .signup-login-label {
+  transform: translatey(calc(-1 * 16px - 12px)) translatex(-8px);
+  font-size: 14px;
+  color: #414141;
+}
