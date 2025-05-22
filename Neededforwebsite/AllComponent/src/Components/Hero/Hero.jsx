@@ -1,13 +1,26 @@
+import { useEffect, useState } from "react";
 import "./hero.css";
+import Item from "../Items/Item";
 function Hero() {
+  const[apiData, setApiData]=useState(null);
+  useEffect(()=>{
+    fetch("https://pokeapi.co/api/v2/pokemon/1/")
+    .then((res)=>res.json())
+    .then((data)=>{
+      setApiData(data);
+      console.log(data);
+    })
+    .catch((err)=>{console.log(err)})
+  },[])
+  console.log({apiData});
+  if(apiData){
   return (
-    <div className="hero flex  justify-center  bg-gradient-to-r  to-purple-500 text-white">
-      <div className="hero__content">
-        <h1 className="hero__title">Welcome to Our Website</h1>
-        <p className="hero__description">Your one-stop solution for all your needs.</p>
-        <button className="hero__button">Get Started</button>
-      </div>
+    
+    <div className="hero">
+      <Item apiData={apiData}/>
     </div>
   );
+    }
+
 }
 export default Hero;
