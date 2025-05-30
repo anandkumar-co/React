@@ -12,8 +12,7 @@ import "./Item.css";
                 setPokemon(data);
                 setLoading(false);
             })
-            .catch((err) => {
-                // console.log(err);
+            .catch((err) => {                
                 setError("Error fetching data");
                 setLoading(false);
             });
@@ -43,12 +42,24 @@ import "./Item.css";
             </div>
         )
     }
+
 return(
+    
     <div className="item">
                 <figure>
                     <img src={pokemon.sprites.other.dream_world.front_default} alt="" />
                 </figure>
-                <h1 className="uppercase">{pokemon.name}</h1>
+                <h1 className="uppercase">{name}</h1>
+                <hr/>
+                <div className="pokemon-detail">
+
+                    <h2>Height: {pokemon.height}</h2>
+                    <h2>Weight: {pokemon.weight}</h2>
+                    <h2>Base : {pokemon.base_experience}</h2>
+                   
+                    <h2>Abilities:{pokemon.abilities.map((ability)=>ability.ability.name).join(", ")}</h2>
+                    
+                </div>
             
     </div>
 )

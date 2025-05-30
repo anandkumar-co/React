@@ -1,0 +1,23 @@
+.search-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.search-bar input{
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    margin-right: 10px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+}
+.pokemon-card ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+   padding: 12px;
+} 

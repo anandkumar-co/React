@@ -17,7 +17,7 @@ function VerticalNavbar() {
         <div className="vertical-navbar">
         <div className="navbar-list"><Link to="/">Dashboard</Link></div>
         <div className="navbar-list"><Link to="/LoginUser"> Our Profile</Link></div>
-        <div className="navbar-list">App</div>
+        <div className="navbar-list"><Link to="/Application">App</Link></div>
         <div className="navbar-list">File Manager</div>
         <div className="navbar-list">Blog</div>
         <div className="navbar-list">About</div>

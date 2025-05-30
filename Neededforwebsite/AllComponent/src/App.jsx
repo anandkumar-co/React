@@ -5,6 +5,7 @@ import OurProfile from "./Pages/OurProfile";
 import "./App.css";
 import LoginUser from "./Pages/LoginUser";
 import Signup from "./Components/SignUp/Signup";
+import Application from "./Pages/Application";
 function Layout() {
   return (
     <div className="app-container">      
@@ -37,6 +38,10 @@ function App() {
       {
         path:"/Signup",
         element:<Signup />,
+      },     
+      {
+        path:"/Application",
+        element:<Application />,
       },     
     ]
     },
