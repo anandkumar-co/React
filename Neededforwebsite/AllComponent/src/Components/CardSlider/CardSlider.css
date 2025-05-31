@@ -1,0 +1,60 @@
+.cardSlider-container{
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    padding: 30px 0; 
+    position: relative; 
+}
+.cardslider{
+    margin: 60px 0;
+    width: 100%;
+    height: 80%;
+    transition: transform 0.5s ease-in-out;
+    gap:10px;
+}
+.card{
+    min-width:24.55%;
+    box-shadow: 0 0 5px black;
+    border-radius: 20px;
+}
+.card-header{
+    width:100%;
+    height: 50%;
+}
+.card-header img{
+    width: 100%;
+    height: 100%;
+}
+.card-title h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+.game-title{
+    font-size: 33px;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+.card-body p{
+    text-align: justify;
+    padding: 0 10px;
+    display: flex;
+    align-self: self-end;
+}
+.prevButton,.nextButton{
+    border: 1px solid #fff;
+    background-color: #fff;
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 40px;
+    color: #000;
+}
+.prevButton{
+    top:50%;
+    left: 0;
+}
+.nextButton{
+    top:50%;
+    right: 0;
+}

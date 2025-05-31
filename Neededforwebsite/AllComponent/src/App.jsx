@@ -6,6 +6,7 @@ import "./App.css";
 import LoginUser from "./Pages/LoginUser";
 import Signup from "./Components/SignUp/Signup";
 import Application from "./Pages/Application";
+import Myfile from "./Pages/myfile";
 function Layout() {
   return (
     <div className="app-container">      
@@ -42,6 +43,10 @@ function App() {
       {
         path:"/Application",
         element:<Application />,
+      },     
+      {
+        path:"/myfile",
+        element:<Myfile />,
       },     
     ]
     },

@@ -18,7 +18,7 @@ function VerticalNavbar() {
         <div className="navbar-list"><Link to="/">Dashboard</Link></div>
         <div className="navbar-list"><Link to="/LoginUser"> Our Profile</Link></div>
         <div className="navbar-list"><Link to="/Application">App</Link></div>
-        <div className="navbar-list">File Manager</div>
+        <div className="navbar-list"><Link to="/myfile">File Manager</Link></div>
         <div className="navbar-list">Blog</div>
         <div className="navbar-list">About</div>
         <div className="navbar-list">Services</div>
