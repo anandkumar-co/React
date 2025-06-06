@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 // const URI= "mongodb://127.0.0.1:27017/All_component";
-const URI="mongodb+srv://anandpandey62099:Anand95233@cluster0.56eb5xc.mongodb.net/All_component?retryWrites=true&w=majority&appName=Cluster0";
+const URI=process.env.MONGODB_URI;
 
 const connecDb=async()=>{
     try {

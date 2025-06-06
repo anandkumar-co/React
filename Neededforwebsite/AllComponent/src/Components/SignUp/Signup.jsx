@@ -5,9 +5,8 @@ function Signup(){
         firstname:"",
         lastname:"",
         email:"",
-        Contact:"",
+        phone:"",
         password:""
-
     })
     function handleLogin(e){
         const{name,value}=e.target;
@@ -15,17 +14,22 @@ function Signup(){
             ...prevData,[name]:value
         }))
     }
-    function handleSubmit(e){
+    const handleSubmit=async(e)=>{
         e.preventDefault();
-        fetch("http://localhost:5000/api/auth/register",{
+        const response=await fetch("http://localhost:5000/api/auth/register",{
             method:"POST",
             headers:{
-            "Content-Type":"json/application",
+            "Content-Type":"application/json",
             },
-            body:JSON.stringify(userData),
+            body:JSON.stringify({
+                username:userData.firstname+userData.lastname,
+                email:userData.email,
+                phone:userData.phone,
+                password:userData.password
+            }),
         }
-        ).then(res=>res.json).then(data=>console.log(data)).catch(error=>console.log(error))
-        console.log(userData);
+        );
+        console.log(response);
     }
 return(
 
@@ -45,24 +49,27 @@ return(
             </span >
             </div>
             <div className="input-container">
-                <input className="signup-input" type="text" id="Contact" name="Contact" required value={userData.Contact} onChange={handleLogin}/>
+                <input className="signup-input" type="text" id="phone" name="phone" required value={userData.phone} onChange={handleLogin}/>
              <span className="signup-login-label" >
                 Contact:
             </span >
             </div>
             <div className="input-container">
-                <input className="signup-input" type="email" id="Email" name="email" required value={userData.email} onChange={handleLogin}/>
+                <input className="signup-input" type="email" id="email" name="email" required value={userData.email} onChange={handleLogin}/>
+                {/* id should be lowercase 'email' for consistency */}
                 <span className="signup-login-label" >
                 Email:
                 </span >
             </div>
             <div className="input-container">
-               <input className="signup-input" type="Password" id="Password" name="password" value={userData.password} onChange={handleLogin} required />
+               <input className="signup-input" type="text" id="password" name="password" value={userData.password} onChange={handleLogin} required />
+              
                <span className="signup-login-label">
                 Password:
                </span >
             </div>
-            <button type="submit" className="login-button">Login</button>
+            <button type="submit" className="login-button">Sign up</button>
+          
         </form>
     </div>
     
