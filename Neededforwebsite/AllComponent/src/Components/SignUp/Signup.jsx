@@ -17,6 +17,14 @@ function Signup(){
     }
     function handleSubmit(e){
         e.preventDefault();
+        fetch("http://localhost:5000/api/auth/register",{
+            method:"POST",
+            headers:{
+            "Content-Type":"json/application",
+            },
+            body:JSON.stringify(userData),
+        }
+        ).then(res=>res.json).then(data=>console.log(data)).catch(error=>console.log(error))
         console.log(userData);
     }
 return(
