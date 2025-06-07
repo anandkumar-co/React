@@ -1,12 +1,12 @@
-const User = require("../models/user-model");
-const bcrypt=require("bcrypt");
+import User from "../models/user-model.js";
+import bcrypt from "bcryptjs";
 
 
-const home = async (req, res) => {
+const home = async (_req, res) => {
   try {
     res.status(200).send("welcome in Backend");
   } catch (error) {
-    console.log(console.error());
+    console.log(error);
   }
 };
 
@@ -33,4 +33,25 @@ const register = async (req, res) => {
     console.log(console.error());
   }
 };
-module.exports = { home, register };
+const login=async (req,res)=>{
+try { 
+  const {email,password}=req.body;
+  const userExist=await User.findOne({email});
+  if(!userExist){
+    res.status(400).json({mes:"invalid user or password"});
+  }
+  const user=await bcrypt.compare(password,userExist.password);
+if(user){
+  res.status(200).json({
+    mess:"login successful",
+    userId:userExist._id.toString(),
+    token:await userExist.generateToken()});
+}
+else{
+  res.status(401).json({mess:"invalid data"})
+}
+} catch (error) {
+  console.log("invalid user");
+}
+}
+export { home, register, login };
