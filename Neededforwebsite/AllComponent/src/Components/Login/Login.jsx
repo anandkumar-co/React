@@ -7,9 +7,16 @@ function Login() {
         email:"",
         password:""
     });
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
-        console.log(userData);
+      const submitData  = await fetch("http://localhost:5000/api/auth/login",{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(userData)
+      })
+      console.log(submitData)
     }
     function handleLogin(e){
         const{name,value}=e.target;

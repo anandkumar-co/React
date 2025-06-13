@@ -6,7 +6,7 @@ function Signup(){
         lastname:"",
         email:"",
         phone:"",
-        password:""
+        password:"",
     })
     function handleLogin(e){
         const{name,value}=e.target;
@@ -14,7 +14,7 @@ function Signup(){
             ...prevData,[name]:value
         }))
     }
-    const handleSubmit=async(e)=>{
+   async function handleSubmit(e){
         e.preventDefault();
         const response=await fetch("http://localhost:5000/api/auth/register",{
             method:"POST",
@@ -28,9 +28,10 @@ function Signup(){
                 password:userData.password
             }),
         }
-        );
-        console.log(response);
+    );
+    console.log(response);
     }
+
 return(
 
     <div className="signup-container">
@@ -55,21 +56,19 @@ return(
             </span >
             </div>
             <div className="input-container">
-                <input className="signup-input" type="email" id="email" name="email" required value={userData.email} onChange={handleLogin}/>
-                {/* id should be lowercase 'email' for consistency */}
+                <input className="signup-input" type="text" id="email" name="email" required value={userData.email} onChange={handleLogin}/>
+               
                 <span className="signup-login-label" >
                 Email:
                 </span >
             </div>
             <div className="input-container">
                <input className="signup-input" type="text" id="password" name="password" value={userData.password} onChange={handleLogin} required />
-              
                <span className="signup-login-label">
                 Password:
                </span >
             </div>
             <button type="submit" className="login-button">Sign up</button>
-          
         </form>
     </div>
     

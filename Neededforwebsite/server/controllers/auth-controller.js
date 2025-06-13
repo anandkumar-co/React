@@ -28,9 +28,9 @@ const register = async (req, res) => {
 
     const userCreated=await User.create({ username, email, phone, password:hash_password });
     res.status(200).json({msg:"registration successfull", token:await userCreated.generateToken(), userId:userCreated._id.toString()} );
-    // res.status(200).send({msg:userCreated} );
+    // res.status(200).send({msg:"userCreated"} );
   } catch (error) {
-    console.log(console.error());
+    console.log("register error");
   }
 };
 const login=async (req,res)=>{
